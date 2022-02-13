@@ -1,14 +1,12 @@
 import { useRouter } from "next/router";
-import { signIn, useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+
 import Layout from "../components/layout";
 import { Input, Label } from "../components/Form";
 import Logo from "../components/Logo";
 import { useSignIn } from "../stores/useSignin";
 
 function SignIn() {
-  const { email, password, isFilledIn, setPassword, setEmail, signIn } =
-    useSignIn();
+  const { isFilledIn, setPassword, setEmail, signIn } = useSignIn();
   const router = useRouter();
 
   return (

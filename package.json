@@ -1,13 +1,12 @@
 {
-  "name": "next-auth-example",
+  "name": "next-starter-template",
   "version": "0.0.0",
   "private": true,
-  "description": "An example project for NextAuth.js",
-  "repository": "https://github.com/nextauthjs/next-auth-example.git",
+  "description": "a Next starter",
+  "repository": "git@github.com:SaraVieira/next-starter-template.git",
   "bugs": {
-    "url": "https://github.com/nextauthjs/next-auth/issues"
+    "url": "https://github.com/SaraVieira/next-starter-template/issues"
   },
-  "homepage": "https://next-auth-example.vercel.app",
   "main": "",
   "scripts": {
     "dev": "next",
@@ -15,7 +14,8 @@
     "start": "next start",
     "types": "tsc --noEmit",
     "prepare": "husky install",
-    "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\""
+    "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\"",
+    "lint": "eslint . --cache --fix"
   },
   "license": "ISC",
   "dependencies": {

@@ -1,8 +1,8 @@
+import { ReactNode } from "react";
 import Header from "./header";
-import type { ReactChildren } from "react";
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function Layout({ children }: Props) {

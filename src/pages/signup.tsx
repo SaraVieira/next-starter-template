@@ -1,7 +1,5 @@
 import { XCircleIcon } from "@heroicons/react/solid";
-import axios from "axios";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { Input, Label } from "../components/Form";
 import Layout from "../components/layout";
 import Logo from "../components/Logo";
