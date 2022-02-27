@@ -1,6 +1,6 @@
 import { hashPassword } from "@/src/helpers/password";
 import prisma from "@/src/helpers/prisma";
-
+import crypto from "crypto";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const SignUp = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -8,9 +8,7 @@ const SignUp = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const data = req.body;
-
-  const { email, password } = data;
+  const { email, password } = req.body;
 
   const existingUser = await prisma.user.findFirst({
     where: {
@@ -29,6 +27,10 @@ const SignUp = async (req: NextApiRequest, res: NextApiResponse) => {
     data: {
       email: email,
       password: hashedPassword,
+      image: `http://www.gravatar.com/avatar/${crypto
+        .createHash("md5")
+        .update(email)
+        .digest("hex")}.jpg?s=120`,
     },
   });
 

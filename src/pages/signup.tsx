@@ -1,8 +1,9 @@
 import { XCircleIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
+import { ChangeEvent } from "react";
 import { Input, Label } from "../components/Form";
 import Layout from "../components/layout";
-import Logo from "../components/Logo";
+
 import { useSignup } from "../stores/useSignin";
 
 const SignUp = () => {
@@ -16,13 +17,12 @@ const SignUp = () => {
     isFilledIn,
   } = useSignup();
 
-  const createAccount = async (e) => {
-    await createUser(e, router);
-  };
   return (
     <Layout>
-      <Logo className="h-5 m-auto mb-12" />
-      <form onSubmit={createAccount} className="max-w-[500px] m-auto p-15">
+      <form
+        onSubmit={(e) => createUser(e, router)}
+        className="max-w-[500px] m-auto p-15 mt-12"
+      >
         <h2 className="text-center pb-8 font-bold text-3xl">Sign up</h2>
         <div className="mb-6">
           <Label htmlFor="email">Email</Label>
@@ -31,7 +31,9 @@ const SignUp = () => {
             placeholder="hey@example.com"
             required
             type="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
           />
         </div>
         <div className="mb-6">
@@ -41,7 +43,9 @@ const SignUp = () => {
             required
             id="password"
             type="password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.target.value)
+            }
           />
         </div>
         <div className="mb-12">
@@ -51,7 +55,9 @@ const SignUp = () => {
             placeholder="super complicated password"
             required
             type="password"
-            onChange={(e) => setRepeatPassword(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setRepeatPassword(e.target.value)
+            }
           />
         </div>
         {error && (

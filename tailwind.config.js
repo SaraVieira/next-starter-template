@@ -11,18 +11,6 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
   ],
   theme: {
-    extend: {
-      colors: {
-        brand: {
-          blue: "#313D4D",
-          darkBlue: "#0F1B2B",
-          inputBg: "#2B3543",
-          red: "#E51937",
-          yellow: "#FFC045",
-          lightBlue: "#47CFFF",
-          green: "#19E58F",
-        },
-      },
-    },
+    extend: {},
   },
 };

@@ -5,5 +5,5 @@ export const Label = ({ children, ...props }) => (
 );
 
 export const Input = (props) => (
-  <input className="bg-brand-inputBg rounded-md w-full border-0" {...props} />
+  <input className="bg-slate-600 rounded-md w-full border-0" {...props} />
 );

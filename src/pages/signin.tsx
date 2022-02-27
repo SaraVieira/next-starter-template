@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 
 import Layout from "../components/layout";
 import { Input, Label } from "../components/Form";
-import Logo from "../components/Logo";
 import { useSignIn } from "../stores/useSignin";
+import { ChangeEvent } from "react";
 
 function SignIn() {
   const { isFilledIn, setPassword, setEmail, signIn } = useSignIn();
@@ -11,10 +11,9 @@ function SignIn() {
 
   return (
     <Layout>
-      <Logo className="h-5 m-auto mb-12" />
       <form
         onSubmit={(e) => signIn(e, router)}
-        className="max-w-[500px] m-auto p-15"
+        className="max-w-[500px] m-auto p-15 mt-12"
       >
         <h2 className="text-center pb-8 font-bold text-3xl">Sign In</h2>
         <div className="mb-6">
@@ -23,7 +22,9 @@ function SignIn() {
             type="email"
             id="email"
             required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
           />
         </div>
         <div className="mb-12">
@@ -32,7 +33,9 @@ function SignIn() {
             type="password"
             id="password"
             required
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.target.value)
+            }
           />
         </div>
         <button
