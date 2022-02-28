@@ -2,9 +2,7 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function Header() {
-  const { data: session, status } = useSession();
-  const loading = status === "loading";
-  if (loading) return null;
+  const { data: session } = useSession();
 
   return (
     <header className="bg-white shadow">
@@ -56,12 +54,3 @@ export default function Header() {
     </header>
   );
 }
-
-// {!session?.user ? (
-//   <>
-//     <Link href="/signin">Sign In</Link>
-//     <Link href="/signup">Sign Up</Link>
-//   </>
-// ) : (
-//
-// )}

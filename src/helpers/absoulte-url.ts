@@ -1,10 +1,19 @@
 import { IncomingMessage } from "http";
 
-export function absoluteUrl(req: IncomingMessage, localhostAddress?: string) {
+type AbsoluteURLReturn = {
+  protocol: string;
+  host: string;
+  origin: string;
+};
+
+export function absoluteUrl(
+  req: IncomingMessage,
+  localhostAddress?: string
+): AbsoluteURLReturn {
   if (localhostAddress === void 0) {
     localhostAddress = "localhost:3000";
   }
-  var _a;
+  var _a: any;
   var host =
     (((_a = req) === null || _a === void 0 ? void 0 : _a.headers)
       ? req.headers.host
