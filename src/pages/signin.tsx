@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import Layout from "../components/layout";
 import { Input, Label } from "../components/Form";
-import { useSignIn } from "../stores/useSignin";
+import { useSignIn } from "../stores/useAuth";
 import { ChangeEvent } from "react";
 
 function SignIn() {

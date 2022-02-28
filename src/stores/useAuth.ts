@@ -41,6 +41,7 @@ type useSignupProps = {
   email: string;
   error: string;
   password: string;
+  name: string;
   repeatPassword: string;
 };
 
@@ -50,6 +51,7 @@ export const useSignup = create(
     email: "",
     password: "",
     repeatPassword: "",
+    name: "",
     isFilledIn: () => {
       const { email, password, repeatPassword } = get();
 
@@ -57,9 +59,10 @@ export const useSignup = create(
     },
     setPassword: (password: string) => set({ password }),
     setEmail: (email: string) => set({ email }),
+    setName: (name: string) => set({ name }),
     setRepeatPassword: (repeatPassword: string) => set({ repeatPassword }),
     createUser: async (e: any, router: NextRouter) => {
-      const { email, password, repeatPassword } = get();
+      const { email, password, repeatPassword, name } = get();
       set({ error: "" });
       e.preventDefault();
 
@@ -76,6 +79,7 @@ export const useSignup = create(
       const { data } = await axios.post(ROUTES.API_SIGN_UP, {
         email,
         password,
+        name,
       });
 
       if (!data.ok) {

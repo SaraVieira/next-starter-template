@@ -2,12 +2,23 @@ import { encode, getToken } from "next-auth/jwt";
 import { getSession } from "next-auth/react";
 import prisma from "@/src/helpers/prisma";
 import { SESSION_MESSAGES } from "./constants";
+import { ISODateString } from "next-auth";
 
 const signInRedirect = {
   redirect: {
     destination: "/signin",
     permanent: false,
   },
+};
+
+export type Session = {
+  user?: {
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+    id?: string | null;
+  };
+  expires: ISODateString;
 };
 
 function validateSession({ session, redirectCondition }) {

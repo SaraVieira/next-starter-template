@@ -8,7 +8,7 @@ const SignUp = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const { email, password } = req.body;
+  const { email, password, name } = req.body;
 
   const existingUser = await prisma.user.findFirst({
     where: {
@@ -31,6 +31,7 @@ const SignUp = async (req: NextApiRequest, res: NextApiResponse) => {
 
   await prisma.user.create({
     data: {
+      name,
       email: email,
       password: hashedPassword,
       image: `http://www.gravatar.com/avatar/${crypto

@@ -4,13 +4,14 @@ import { ChangeEvent } from "react";
 import { Input, Label } from "../components/Form";
 import Layout from "../components/layout";
 
-import { useSignup } from "../stores/useSignin";
+import { useSignup } from "../stores/useAuth";
 
 const SignUp = () => {
   const router = useRouter();
   const {
     createUser,
     error,
+    setName,
     setPassword,
     setEmail,
     setRepeatPassword,
@@ -24,6 +25,18 @@ const SignUp = () => {
         className="max-w-[500px] m-auto p-15 mt-12"
       >
         <h2 className="text-center pb-8 font-bold text-3xl">Sign up</h2>
+        <div className="mb-6">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="Name"
+            required
+            placeholder="Your name"
+            type="text"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setName(e.target.value)
+            }
+          />
+        </div>
         <div className="mb-6">
           <Label htmlFor="email">Email</Label>
           <Input
