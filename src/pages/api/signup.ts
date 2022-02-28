@@ -14,6 +14,12 @@ const SignUp = async (req: NextApiRequest, res: NextApiResponse) => {
     where: {
       email,
     },
+    select: {
+      email: true,
+      name: true,
+      id: true,
+      image: true,
+    },
   });
 
   if (existingUser) {
